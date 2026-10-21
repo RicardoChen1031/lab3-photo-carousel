@@ -3,53 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A New Home - Lab 3 Progress</title>
+    <title>A New Home | Photo Carousel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <p>LAB 3: PHOTO CAROUSEL</p>
+    <header class="site-header">
+        <p class="lab-label">LAB 3 · PHOTO CAROUSEL</p>
         <h1>A New Home</h1>
-        <p>The same three photos will tell two different stories.</p>
+        <p class="intro">
+            The same three photographs can tell two different stories.
+            Choose a sequence and move through the beginning, middle, and end.
+        </p>
     </header>
 
-    <main>
-        <section>
-            <h2>Story A: Finding a Home</h2>
-
-            <figure>
-                <img
-                    src="https://images.pexels.com/photos/5812866/pexels-photo-5812866.jpeg?auto=compress&amp;dpr=1&amp;h=750&amp;w=1260"
-                    alt="A puppy resting alone on a street"
-                    width="600">
-                <figcaption>Beginning: A small puppy waits alone on the street.</figcaption>
-            </figure>
-
-            <figure>
-                <img
-                    src="https://images.pexels.com/photos/30704240/pexels-photo-30704240/free-photo-of-affectionate-hand-petting-a-stray-dog-in-india.jpeg?auto=compress&amp;dpr=1&amp;h=750&amp;w=1260"
-                    alt="A person gently petting a stray dog"
-                    width="600">
-                <figcaption>Middle: A stranger stops and offers kindness.</figcaption>
-            </figure>
-
-            <figure>
-                <img
-                    src="https://images.pexels.com/photos/5255228/pexels-photo-5255228.jpeg?auto=compress&amp;dpr=1&amp;h=750&amp;w=1260"
-                    alt="A dog resting on a couch at home"
-                    width="600">
-                <figcaption>End: The puppy is safe in a warm new home.</figcaption>
-            </figure>
+    <main class="story-card">
+        <section class="story-menu" aria-label="Choose a story">
+            <p class="small-label">CHOOSE A SEQUENCE</p>
+            <div class="story-buttons">
+                <button class="story-button active" id="homeButton" type="button">
+                    Story A · Finding a Home
+                </button>
+                <button class="story-button" id="goodbyeButton" type="button">
+                    Story B · A Difficult Goodbye
+                </button>
+            </div>
         </section>
 
-        <section>
-            <h2>Story B: A Difficult Goodbye</h2>
-            <p>The second sequence will use the same photos in reverse order.</p>
-            <p>Buttons and JavaScript interaction will be added next.</p>
+        <section class="carousel" aria-live="polite">
+            <div class="photo-side" id="photoSide">
+                <img
+                    id="storyImage"
+                    src="images/puppy-street.jpg"
+                    alt="A puppy resting alone on a street">
+                <span class="chapter" id="chapter">BEGINNING</span>
+                <button class="photo-button" id="photoButton" type="button">
+                    Click photo for next →
+                </button>
+            </div>
+
+            <div class="text-side">
+                <div class="story-info">
+                    <span id="storyName">STORY A · FINDING A HOME</span>
+                    <span id="counter">01 / 03</span>
+                </div>
+
+                <h2 id="storyTitle">Waiting Alone</h2>
+                <p id="storyText">
+                    A small puppy waits quietly on the street, unsure where it will sleep tonight.
+                </p>
+
+                <div class="progress" aria-hidden="true">
+                    <span id="progressBar"></span>
+                </div>
+
+                <div class="controls">
+                    <button class="control-button" id="previousButton" type="button">← Previous</button>
+
+                    <div class="dots" aria-label="Choose a photo">
+                        <button class="dot active" data-slide="0" type="button" aria-label="Photo 1"></button>
+                        <button class="dot" data-slide="1" type="button" aria-label="Photo 2"></button>
+                        <button class="dot" data-slide="2" type="button" aria-label="Photo 3"></button>
+                    </div>
+
+                    <button class="control-button next" id="nextButton" type="button">Next →</button>
+                </div>
+            </div>
         </section>
     </main>
 
+    <section class="explanation">
+        <p class="small-label">THE POWER OF SEQUENCING</p>
+        <h2>Order changes the meaning.</h2>
+        <p>
+            In Story A, the hand represents rescue and the dog finds a home.
+            In Story B, the same hand represents goodbye and the dog leaves home.
+            Nothing changes except the order and the words around the photographs.
+        </p>
+    </section>
+
     <footer>
-        <p>Class progress version</p>
+        HTML · CSS · JavaScript · Variables · Functions · Event Listeners · DOM Manipulation
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
